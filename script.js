@@ -28,6 +28,7 @@ class FriendCard {
 		this.age=age;
 		this.phone=phone;
 		this.country=country;
+		this.gender = this.gender;
 	}
 	render() {
 		outputElement.insertAdjacentHTML('beforeend', `
@@ -48,7 +49,8 @@ function cardsCreate(friendsArr){
 		const imgSrc = friendObj.picture.large;
 		const country = friendObj.location.country
 		const age = friendObj.dob.age;
-		friendCardsArr.push(new FriendCard(imgSrc, first, last, age, cell, country))
+		const gender = friendObj.gender
+		friendCardsArr.push(new FriendCard(imgSrc, first, last, age, cell, country,gender))
 	})
 	friendCardsArr.forEach(card => card.render())
 }

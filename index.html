@@ -11,12 +11,6 @@
 	<div class="wrapper">
 		<nav class="all--filters">
 			<form class="filters">
-				<div class="filter search">
-					<div id="name">
-						<input type="text" placeholder="Enter a name" name="user" id="user--name" />
-						<button id="input--button" class="input--button"> <p class="signiture">Go!</p> </button>
-					</div>
-				</div>
 				<div class="filter filter--gender">
 					<p>Gender:</p>
 					<input type="radio" id="all" name="filters" value="all" class="checkbox--icon" checked />
@@ -26,6 +20,8 @@
 					<input type="radio" id="female" name="filters" value="female" class="checkbox--icon" />
 					<label for="female"> <p class="signiture"> Female </p> </label>
 				</div>
+			</form>
+			<form class="filters">
 				<div class="filter filter--name">
 					<p>Name:</p>
 					<input type="radio" id="AZ" name="filters" value="AZ" class="checkbox--icon" />
@@ -33,6 +29,7 @@
 					<input type="radio" id="ZA" name="filters" value="ZA" class="checkbox--icon" />
 					<label for="ZA"><p class="signiture">  Z-A </p></label><br />
 				</div>
+				<button type="reset" class="filter reset--button"><p class="signiture"> <= Reset Filters => </p></button>
 				<div class="filter filter--age">
 					<p>Age:</p>
 					<input type="radio" id="ageUp" name="filters" value="ageUp" class="checkbox--icon" />
@@ -40,7 +37,12 @@
 					<input type="radio" id="ageDown" name="filters" value="ageDown"class="checkbox--icon"  />
 					<label for="ageDown"> <p class="signiture"> max - min </p></label><br />
 				</div>
-				<button type="reset" class="filter reset--button"><p class="signiture"> Reset Filters </p></button>
+				<div class="filter search">
+					<div id="name">
+						<input type="text" placeholder="Enter a name" name="user" id="user--name" />
+						<button id="input--button" class="input--button"> <p class="signiture">Go!</p> </button>
+					</div>
+				</div>
 			</form>
 		</nav>
 		<div class="container">
