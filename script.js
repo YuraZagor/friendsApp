@@ -1,4 +1,4 @@
-const url = 'https://randomuser.me/api/?results=10';
+const url = 'https://randomuser.me/api/?results=100';
 const friendCardsArr = []
 let friendsArr = []
 let sortedFriendCardsArr = [...friendCardsArr]

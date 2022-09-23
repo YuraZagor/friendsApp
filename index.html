@@ -8,53 +8,46 @@
 	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-	<nav class="header__filter">
-		<form class="filter">
-		  <div class="filter__search">
-			 <div id="name">
-				<input
-				  type="text"
-				  placeholder="Enter a name"
-				  name="user"
-				  id="user-name"
-				/>
-				<button id="input-button" class="filter__button">
-				  <i class="fa-solid fa-magnifying-glass"></i>
-				</button>
-			 </div>
-		  </div>
-		  <div class="filter__checkbox">
-			 <div class="filter__gender">
-				<p>Gender:</p>
-				<input type="radio" id="all" name="gender" value="all" checked />
-				<label for="all">All</label><br />
-				<input type="radio" id="male" name="gender" value="male" />
-				<label for="male">Male</label><br />
-				<input type="radio" id="female" name="gender" value="female" />
-				<label for="female">Female</label>
-			 </div>
-			 <div class="filter__age">
-				<p>Age:</p>
-				<input type="radio" id="minAge" name="age-name" value="minAge" />
-				<label for="minAge">min - max</label><br />
-				<input type="radio" id="maxAge" name="age-name" value="maxAge" />
-				<label for="maxAge">max - min</label><br />
-			 </div>
-			 <div class="filter__name">
-				<p>Name:</p>
-				<input type="radio" id="AtoZ" name="age-name" value="AtoZ" />
-				<label for="AtoZ">A-Z</label><br />
-				<input type="radio" id="ZtoA" name="age-name" value="ZtoA" />
-				<label for="ZtoA">Z-A</label><br />
-			 </div>
-			 <button type="reset" class="filter__reset-button">Reset</button>
-		  </div>
-		</form>
-	</nav>
-	<ul class="navbar">
+	<div class="wrapper">
+		<nav class="all--filters">
+			<form class="filters">
+				<div class="filter search">
+					<div id="name">
+						<input type="text" placeholder="Enter a name" name="user" id="user--name" />
+						<button id="input--button" class="input--button"> <p class="signiture">Go!</p> </button>
+					</div>
+				</div>
+				<div class="filter filter--gender">
+					<p>Gender:</p>
+					<input type="radio" id="all" name="filters" value="all" class="checkbox--icon" checked />
+					<label for="all"> <p class="signiture"> All </p> </label><br />
+					<input type="radio" id="male" name="filters" value="male" class="checkbox--icon" />
+					<label for="male"> <p class="signiture"> Male </p> </label><br />
+					<input type="radio" id="female" name="filters" value="female" class="checkbox--icon" />
+					<label for="female"> <p class="signiture"> Female </p> </label>
+				</div>
+				<div class="filter filter--name">
+					<p>Name:</p>
+					<input type="radio" id="AZ" name="filters" value="AZ" class="checkbox--icon" />
+					<label for="AZ"><p class="signiture"> A-Z </p></label><br />
+					<input type="radio" id="ZA" name="filters" value="ZA" class="checkbox--icon" />
+					<label for="ZA"><p class="signiture">  Z-A </p></label><br />
+				</div>
+				<div class="filter filter--age">
+					<p>Age:</p>
+					<input type="radio" id="ageUp" name="filters" value="ageUp" class="checkbox--icon" />
+					<label for="ageUp"> <p class="signiture"> min - max </p></label><br />
+					<input type="radio" id="ageDown" name="filters" value="ageDown"class="checkbox--icon"  />
+					<label for="ageDown"> <p class="signiture"> max - min </p></label><br />
+				</div>
+				<button type="reset" class="filter reset--button"><p class="signiture"> Reset Filters </p></button>
+			</form>
+		</nav>
+		<div class="container">
+			<ul class="output"> </ul>
+		</div>
 
-	</ul>
-	<div class="output"></div>
+	</div>
 
 	<script src="./script.js"></script>
 </body>
