@@ -1,70 +1,120 @@
-const url = 'https://randomuser.me/api/?results=100';
-const friendCardsArr = []
-let friendsArr = []
-let sortedFriendCardsArr = [...friendCardsArr]
-
-const outputElement = document.querySelector('.output')
+const url = 'https://randomuser.me/api/?results=50';
 
 
-const assignUsers = async () => {
-	try {
-		const response = await fetch(url);
-		const data = await response.json();
-		friendsArr = data.results;
-		cardsCreate(friendsArr)
-		console.log(friendsArr)
-		console.log(friendCardsArr)
-	} catch (error) {
-		console.error(error)
-	} 
- }
- assignUsers()
+let newUsers = '';
+const cardsContainer = document.querySelector('.cards--container');
+const sortInput = document.querySelectorAll('.checkbox--icon');
+document.addEventListener('DOMContentLoaded', () => {
+  initApp();
+});
 
-class FriendCard {
-	constructor(image, firstName, lastName, age, phone, country){
-		this.image = image;
-		this.firstName = firstName;
-		this.lastName=lastName;
-		this.age=age;
-		this.phone=phone;
-		this.country=country;
-		this.gender = this.gender;
-	}
-	render() {
-		outputElement.insertAdjacentHTML('beforeend', `
-			<li class="card">
-				<img class="friendcard--img" src=${this.image} alt="">
-				<p class="friendcard name">${this.firstName} ${this.lastName}</p>
-				<p class="friendcard age">${this.age} years old</p>
-				<p class="friendcard phone">${this.phone}</p>
-				<p class="friendcard country">${this.country}</p>
-			</li>`);
-		}
-} 
+const fetchUsers = async () => {
 
-function cardsCreate(friendsArr){
-	friendsArr.map((friendObj)=> {
-		const {cell} = friendObj
-		const { first, last } = friendObj.name
-		const imgSrc = friendObj.picture.large;
-		const country = friendObj.location.country
-		const age = friendObj.dob.age;
-		const gender = friendObj.gender
-		friendCardsArr.push(new FriendCard(imgSrc, first, last, age, cell, country,gender))
-	})
-	friendCardsArr.forEach(card => card.render())
+  for (let i = 0; i < 5; i++) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      } else {
+        const { results } = await response.json();
+        return results;
+		  
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+};
+
+const initApp = async () => {
+  const usersData = await fetchUsers();
+  fillCardContainer(usersData);
+  enableInputsToSort(usersData);
+  searchByUserName(usersData);
+  resetUsers([...usersData]);
+};
+
+function fillCardContainer(data) {
+  let userCard;
+  cardsContainer.innerHTML = '';
+  data.forEach((card) => {
+    userCard = createCard(card);
+    cardsContainer.innerHTML += userCard;
+  });
 }
 
-
-
-
-function sortingMin(param){
-	sortedFriendCardsArr.sort( (firstFriend, secondFriend) => {
-		return firstFriend.param - secondFriend.param
-	});
+function createCard({ picture, name, dob, cell, gender, location }) {
+	const card = `
+		<div class="user-card ${gender}">
+			<div class="user--img">
+				<img class="user--image" src="${picture.large}" alt="" >
+			</div>
+			<div class="user-info">
+				<h3 class="user-name">${name.first} ${name.last}</h3>
+				<p class="user-age">${dob.age} years old</p>
+				<p class="user-phone"> ${cell}"</p> 
+				<p class="user-country"> ${location.country} </p4> 
+				<p class="user-city"> ${location.city} </p5> 
+			</div>
+		</div>
+	`;
+	return card;
 }
-function sortingMax(param){
-	sortedFriendCardsArr.sort( (firstFriend, secondFriend) => {
-		return secondFriend.param - firstFriend.param 
-	});
+
+const enableInputsToSort = (data) => {
+  sortInput.forEach((el) =>
+    el.addEventListener('click', () => {
+      newUsers = sortUsers(data, el.id);
+      if (el.checked && el.classList.contains('gender')) {
+        newUsers = filterByGender(newUsers, el.id);
+      }
+      fillCardContainer(newUsers);
+    })
+  );
+};
+
+function sortUsers(data, id) {
+  if (id === 'ageUp' || id === 'ageDown') {
+    data.sort((a, b) => a.dob.age - b.dob.age);
+    return id === 'ageUp' ? data : data.reverse();
+  }
+  if (id === 'az' || id === 'za') {
+    data.sort((a, b) => a.name.first.localeCompare(b.name.first));
+    return id === 'az' ? data : data.reverse();
+  }
+  return data;
 }
+
+function filterByGender(data, id) {
+  if (id === 'female') {
+    return data.filter((user) => user.gender === 'female');
+  }
+  if (id === 'male') {
+    return data.filter((user) => user.gender === 'male');
+  }
+
+  return data;
+}
+
+const searchInput = document.querySelector('#user-names');
+const searchByUserName = (data) => {
+  newUsers = [...data];
+  searchInput.addEventListener('input', () => {
+    newUsers = data.filter((user) => user.name.first.toLowerCase().includes(searchInput.value.toLowerCase()) || user.name.last.toLowerCase().includes(searchInput.value.toLowerCase()));
+    if (newUsers.length === 0) {
+      document.querySelector('.cards--container').innerHTML = `
+        <h2 class="no-matches-title">No corresponding user, try some other variants ...</h2>
+      `;
+    } else {
+      fillCardContainer(newUsers);
+    }
+  });
+};
+
+const resetUsers = (data) => {
+  document.querySelector('.reset--button').addEventListener('click', (e) => {
+    e.preventDefault();
+    fillCardContainer(data);
+	 searchInput.value = ''
+  });
+};

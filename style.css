@@ -7,6 +7,8 @@
 	color: rgb(25, 23, 37);
 	font-weight: bolder;
  }
+
+
 .wrapper {
 	margin-left: auto;
    margin-right: auto;
@@ -17,7 +19,7 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
-	border: 1px solid rgb(73, 72, 72);
+	border: 2px solid rgb(248, 246, 246);
 	background-color: rgb(207, 207, 207);
 	margin: 5px;
 	padding: 5px;
@@ -26,14 +28,16 @@
 }
 .all--filters{
 	display: flex;
+	justify-content: center;
+	background-color: grey;	
 }
-.filters {
-	border: 1px solid grey;
+
+.age--sorting, .form, .gender--sorting, .name--sorting {
+	border: 1px solid rgb(248, 246, 246);
 	display: flex;
 	justify-content: space-between;
 	justify-content: center;
 	align-items: center;
-	background-color: grey;
 	user-select: none;
 	margin-bottom: 0.2em;
 }
@@ -42,7 +46,7 @@
 	position: relative;
 }
 
-.output {
+.cards--container {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
@@ -50,8 +54,7 @@
 	margin: 0 auto;
 }
 
-.card {
-	
+.user-card {	
 	position: relative;
 	width: 180px;
 	height: auto;
@@ -66,13 +69,11 @@
 	background-color: rgb(187, 185, 185);
 };
 
-.reset--button{
-	background-color: aliceblue;
-}
 .signiture {
-	border: 2px solid rgb(238, 232, 232);
+	border: 2px solid rgb(0, 0, 0);
 	user-select: none;
 	margin: 5px;
+	padding: 0 5px 0 5px;
 }
 
 .checkbox--icon {
@@ -85,3 +86,29 @@
 	background-color: rgb(126, 119, 119);
 	color: white;
 }
+
+.user-info{
+	display: flex;
+	flex-direction: column;
+	justify-items: space-between;
+
+}
+.user-location{
+	color:rgb(28, 101, 104);
+	font-size: 1.2em;
+}
+.user-name{
+	color:rgb(63, 66, 15);
+	font-size: 1.3em;
+}.user-phone {
+	color: rgba(251, 255, 0, 0.658)
+}
+.user-age {
+	color: rgb(0, 132, 255)
+}
+.github-link, .main-title {
+	display: flex;
+	justify-content: center;
+	color: rgba(251, 255, 0, 0.658)
+}
+

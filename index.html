@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>FriendsApp</title>
-	<link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+  <title>Friends App</title>
 </head>
 <body>
 	<div class="wrapper">
-		<nav class="all--filters">
-			<form class="filters">
-				<div class="filter filter--gender">
-					<p>Gender:</p>
-					<input type="radio" id="all" name="filters" value="all" class="checkbox--icon" checked />
-					<label for="all"> <p class="signiture"> All </p> </label><br />
-					<input type="radio" id="male" name="filters" value="male" class="checkbox--icon" />
-					<label for="male"> <p class="signiture"> Male </p> </label><br />
-					<input type="radio" id="female" name="filters" value="female" class="checkbox--icon" />
-					<label for="female"> <p class="signiture"> Female </p> </label>
-				</div>
-			</form>
-			<form class="filters">
-				<div class="filter filter--name">
-					<p>Name:</p>
-					<input type="radio" id="AZ" name="filters" value="AZ" class="checkbox--icon" />
-					<label for="AZ"><p class="signiture"> A-Z </p></label><br />
-					<input type="radio" id="ZA" name="filters" value="ZA" class="checkbox--icon" />
-					<label for="ZA"><p class="signiture">  Z-A </p></label><br />
-				</div>
-				<button type="reset" class="filter reset--button"><p class="signiture"> <= Reset Filters => </p></button>
-				<div class="filter filter--age">
-					<p>Age:</p>
+		<h1 class="main-title">Friends App by YuraZagot and KOTTANS</h1>
+
+		<nav class="sorting-container">
+			<form action="#" class="form">
+				<input type="search" class="main-search" id="user-names" placeholder="Search by name..." autocomplete="off">
+				<div div class="age--sorting">
+					<p class="sort-title">age</p>
 					<input type="radio" id="ageUp" name="filters" value="ageUp" class="checkbox--icon" />
-					<label for="ageUp"> <p class="signiture"> min - max </p></label><br />
+					<label for="ageUp"> <p class="signiture">|| min - max |</p></label><br />
 					<input type="radio" id="ageDown" name="filters" value="ageDown"class="checkbox--icon"  />
-					<label for="ageDown"> <p class="signiture"> max - min </p></label><br />
+					<label for="ageDown"> <p class="signiture">| max - min ||</p></label><br />
 				</div>
-				<div class="filter search">
-					<div id="name">
-						<input type="text" placeholder="Enter a name" name="user" id="user--name" />
-						<button id="input--button" class="input--button"> <p class="signiture">Go!</p> </button>
-					</div>
+				
+				<div class="name--sorting">
+					<p>Name:</p>
+					<input type="radio" id="az" name="filters" value="az" class="checkbox--icon" />
+					<label for="az"><p class="signiture">|| A-Z |</p></label><br />
+					<input type="radio" id="za" name="filters" value="za" class="checkbox--icon" />
+					<label for="za"><p class="signiture"> | Z-A ||</p></label><br />
 				</div>
+				<div class="gender--sorting">
+					<p class="sort-title">Gender:</p>
+					<input type="radio" id="sex--any" name="gender--filter" value="all" class="checkbox--icon" checked />
+					<label for="all"> <p class="signiture">|| All |</p> </label><br />
+					<input type="radio" id="male" name="gender--filter" value="male" class="checkbox--icon" />
+					<label for="male"> <p class="signiture">| Male |</p> </label><br />
+					<input type="radio" id="female" name="gender--filter" value="female" class="checkbox--icon" />
+					<label for="female"> <p class="signiture">| Female ||</p> </label>
+				</div>           
+				<input class="reset--button" type="submit" value="Reset">
 			</form>
 		</nav>
-		<div class="container">
-			<ul class="output"> </ul>
-		</div>
+		<main class="cards--container">
 
+		</main>
+		<footer>
+			<div class="footer-info">
+				<a class="github-link" href="https://github.com/YuraZagor" target="_blank" >Made by YuraZagor</a>
+			</div>
+		</footer>
 	</div>
 
-	<script src="./script.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>
+
