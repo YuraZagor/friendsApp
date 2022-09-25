@@ -4,21 +4,15 @@ const url = 'https://randomuser.me/api/?results=50';
 let newUsers = '';
 const cardsContainer = document.querySelector('.cards--container');
 const sortInput = document.querySelectorAll('.checkbox--icon');
-document.addEventListener('DOMContentLoaded', () => {
-  initApp();
-});
 
 const fetchUsers = async () => {
-
-
     try {
       const response = await fetch(url);
       if (!response.ok) {
         throw Error(response.statusText);
       } else {
         const { results } = await response.json();
-        return results;
-		  
+        return results;		  
       }
     } catch (e) {
       console.error(e);
@@ -32,6 +26,7 @@ const initApp = async () => {
   searchByUserName(usersData);
   resetUsers([...usersData]);
 };
+initApp();
 
 function fillCardContainer(data) {
   let userCard;
@@ -116,6 +111,6 @@ const resetUsers = (data) => {
 	 searchInput.value = '';
 
    document.getElementById('sex--any').checked = true
+   document.getElementById('empty').checked = true
   });
-
 };

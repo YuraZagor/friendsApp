@@ -76,12 +76,12 @@
 	padding: 0 5px 0 5px;
 }
 
-/* .checkbox--icon {
+.checkbox--icon {
 	position: absolute;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;		
-} */
+}
 .checkbox--icon:checked + label {
 	background-color: rgb(126, 119, 119);
 	color: white;
