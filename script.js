@@ -109,7 +109,6 @@ const resetUsers = (data) => {
     e.preventDefault();
     fillCardContainer(data);
 	 searchInput.value = '';
-
    document.getElementById('sex--any').checked = true
    document.getElementById('empty').checked = true
   });

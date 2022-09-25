@@ -15,31 +15,37 @@
 	max-width: 1400px;
 	background-color: rgb(199, 198, 198);
 }
-.filter{
-	display: flex;
-	justify-content: space-between;
-	padding: 10px;
-	border: 2px solid rgb(248, 246, 246);
-	background-color: rgb(207, 207, 207);
-	margin: 5px;
-	padding: 5px;
-	justify-content: center;
-	align-items: center;
-}
-.all--filters{
+
+.form{
 	display: flex;
 	justify-content: center;
-	background-color: grey;	
+	justify-content: space-around;
+	max-width: 1200px;
+	margin: 0 auto;
+	flex-wrap: wrap;
+	border: 1px solid rgb(248, 246, 246);
 }
 
-.age--sorting, .form, .gender--sorting, .name--sorting {
+.age--sorting,
+.gender--sorting, 
+.name--sorting,
+.reset--button,
+.main-search,
+.upper,
+.lower
+ {
 	border: 1px solid rgb(248, 246, 246);
 	display: flex;
-	justify-content: space-between;
+
 	justify-content: center;
 	align-items: center;
 	user-select: none;
 	margin-bottom: 0.2em;
+	padding: 5px;
+}
+.main-search,
+.reset--button{
+	width: 200px;
 }
 
 .container {
@@ -109,6 +115,75 @@
 .github-link, .main-title {
 	display: flex;
 	justify-content: center;
-	color: rgba(251, 255, 0, 0.658)
+	color: rgba(68, 70, 22, 0.658)
 }
+.github-link{
+	padding-bottom: 20px;
+}
+@media screen  and (max-width: 1021px) {
+	.sort--title {
+	  display: none;
+	}
 
+}
+@media screen  and (max-width: 853px) {
+	.sort--title {
+	  display: none;
+	}
+	.main-search,
+	.reset--button{
+		width: 100px;
+	}
+
+}
+@media screen  and (max-width: 655px) {
+	.sort--title {
+	  display: none;
+	}
+
+	.reset--button{
+		width: 50px;
+	}
+	.main-title{
+		font-size: 1.25em;
+	}
+
+}
+@media screen  and (max-width: 605px) {
+	.sort--title {
+	  display: none;
+	}
+
+	.main-search{
+		width: 250px;
+	}
+	.reset--button{
+		width: 200px;
+	}
+	.main-title{
+		font-size: 1.25em;
+	}
+	.upper, .lower{
+		width: 100%;
+		justify-content: space-between;
+	}
+}
+@media screen  and (max-width: 475px) {
+	.sort--title {
+	  display: none;
+	}
+
+	.main-search{
+		width: 150px;
+	}
+	.reset--button{
+		width: 60px;
+	}
+	.main-title{
+		font-size: 1.25em;
+	}
+	.upper, .lower{
+		width: 100%;
+		justify-content: space-between;
+	}
+}

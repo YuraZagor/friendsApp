@@ -8,37 +8,44 @@
 </head>
 <body>
 	<div class="wrapper">
-		<h1 class="main-title">Friends App by YuraZagot and KOTTANS</h1>
+		<h1 class="main-title">Friends App by YuraZagor and KOTTANS</h1>
 
 		<nav class="sorting-container">
 			<form action="#" class="form">
-				<input type="search" class="main-search" id="user--names" placeholder="Search by name..." autocomplete="off">
-				<div div class="age--sorting">
-					<p class="sort-title">age</p>
-					<input type="radio" id="ageUp" name="filters" value="ageUp" class="checkbox--icon" />
-					<label for="ageUp"> <p class="signiture">|| min - max |</p></label>
-					<input type="radio" id="ageDown" name="filters" value="ageDown"class="checkbox--icon"  />
-					<label for="ageDown"> <p class="signiture">| max - min ||</p></label>
+				<div class="upper">
+					<input type="search" class="main-search" id="user--names" placeholder="Search by name..." autocomplete="off">
+					
+					<div class="gender--sorting">
+						<p class="sort--title">GENDER:</p>
+						<input type="radio" id="sex--any" name="gender--filter" value="all" class="checkbox--icon gender" checked />
+						<label for="sex--any"> <p class="signiture">|| All |</p> </label>
+						<input type="radio" id="male" name="gender--filter" value="male" class="checkbox--icon gender" />
+						<label for="male"> <p class="signiture">| Male |</p> </label>
+						<input type="radio" id="female" name="gender--filter" value="female" class="checkbox--icon gender" />
+						<label for="female"> <p class="signiture">| Female ||</p> </label>
+					</div>
 				</div>
-				
-				<div class="name--sorting">
-					<p>Name:</p>
-					<input type="radio" id="az" name="filters" value="az" class="checkbox--icon" />
-					<label for="az"><p class="signiture">|| A-Z |</p></label> 
-					<input type="radio" id="za" name="filters" value="za" class="checkbox--icon" />
-					<label for="za"><p class="signiture"> | Z-A ||</p></label>
-					<input type="radio" id="empty" name="filters" value="" class="checkbox--icon" />
+
+				<div class="lower">
+					<div div class="age--sorting">
+						<p class="sort--title"> AGE: </p>
+						<input type="radio" id="ageUp" name="filters" value="ageUp" class="checkbox--icon" />
+						<label for="ageUp"> <p class="signiture">||  ageUp |</p></label>
+						<input type="radio" id="ageDown" name="filters" value="ageDown"class="checkbox--icon"  />
+						<label for="ageDown"> <p class="signiture">| ageDown ||</p></label>
+					</div>
+					
+					<div class="name--sorting">
+						<p class="sort--title">NAME:</p>
+						<input type="radio" id="az" name="filters" value="az" class="checkbox--icon" />
+						<label for="az"><p class="signiture">|| A-Z |</p></label> 
+						<input type="radio" id="za" name="filters" value="za" class="checkbox--icon" />
+						<label for="za"><p class="signiture"> | Z-A ||</p></label>
+						<input type="radio" id="empty" name="filters" value="" class="checkbox--icon" />
+					</div>			
+
+					<input class="reset--button" type="submit" value="Reset">
 				</div>
-				<div class="gender--sorting">
-					<p class="sort-title">Gender:</p>
-					<input type="radio" id="sex--any" name="gender--filter" value="all" class="checkbox--icon gender" checked />
-					<label for="sex--any"> <p class="signiture">|| All |</p> </label>
-					<input type="radio" id="male" name="gender--filter" value="male" class="checkbox--icon gender" />
-					<label for="male"> <p class="signiture">| Male |</p> </label>
-					<input type="radio" id="female" name="gender--filter" value="female" class="checkbox--icon gender" />
-					<label for="female"> <p class="signiture">| Female ||</p> </label>
-				</div>           
-				<input class="reset--button" type="submit" value="Reset">
 			</form>
 		</nav>
 		<main class="cards--container">
