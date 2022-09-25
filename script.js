@@ -116,5 +116,9 @@ const resetUsers = (data) => {
     e.preventDefault();
     fillCardContainer(data);
 	 searchInput.value = ''
+   
+
+
+
   });
 };
