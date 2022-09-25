@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const fetchUsers = async () => {
 
-  for (let i = 0; i < 5; i++) {
+
     try {
       const response = await fetch(url);
       if (!response.ok) {
@@ -23,7 +23,6 @@ const fetchUsers = async () => {
     } catch (e) {
       console.error(e);
     }
-  }
 };
 
 const initApp = async () => {
@@ -92,11 +91,10 @@ function filterByGender(data, id) {
   if (id === 'male') {
     return data.filter((user) => user.gender === 'male');
   }
-
   return data;
 }
 
-const searchInput = document.querySelector('#user-names');
+const searchInput = document.querySelector('#user--names');
 const searchByUserName = (data) => {
   newUsers = [...data];
   searchInput.addEventListener('input', () => {
@@ -115,10 +113,9 @@ const resetUsers = (data) => {
   document.querySelector('.reset--button').addEventListener('click', (e) => {
     e.preventDefault();
     fillCardContainer(data);
-	 searchInput.value = ''
-   
+	 searchInput.value = '';
 
-
-
+   document.getElementById('sex--any').checked = true
   });
+
 };
