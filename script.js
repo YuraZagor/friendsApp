@@ -68,12 +68,15 @@ const enableInputsToSort = (data) => {
 };
 
 function sortUsers(data, id) {
+  
   if (id === 'ageUp' || id === 'ageDown') {
     data.sort((a, b) => a.dob.age - b.dob.age);
+    document.getElementById('sex--any').checked = true
     return id === 'ageUp' ? data : data.reverse();
   }
   if (id === 'az' || id === 'za') {
     data.sort((a, b) => a.name.first.localeCompare(b.name.first));
+    document.getElementById('sex--any').checked = true
     return id === 'az' ? data : data.reverse();
   }
   return data;
