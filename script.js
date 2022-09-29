@@ -44,7 +44,8 @@ function createCard({ picture, name, dob, cell, gender, location }) {
 				<img class="user--image" src="${picture.large}" alt="" >
 			</div>
 			<div class="user-info">
-				<h3 class="user-name">${name.first} ${name.last}</h3>
+				<h3 class="user-name">${name.first}</h3>
+				<h3 class="user-name">${name.last}</h3>
 				<p class="user-age">${dob.age} years old</p>
 				<p class="user-phone"> ${cell}"</p> 
 				<p class="user-country"> ${location.country} </p4> 
