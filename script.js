@@ -29,6 +29,7 @@ async function friendsLoad(inputValue) {
   
   switch (inputValue) {
     case 'Reset':
+      resetUsers(loadedResults)
     case 'ageUp':
     case 'ageDown':
     case 'az':
@@ -71,17 +72,17 @@ function fillCardContainer(data) {
 function createCard( {picture, name, dob, cell, location}) {
   const card = `
   <div class="user-card">
-	  <div class="user--img">
-	  	<img class="user--image" src="${picture.large}" alt="" >
-	  </div>
-	  <div class="user-info">
-		  <h3 class="user-name">${name.first}</h3>
-		  <h3 class="user-name">${name.last}</h3>
-		  <p class="user-age">${dob.age} years old</p>
-		  <p class="user-phone"> ${cell}"</p> 
-		  <p class="user-country"> ${location.country} </p4> 
-		  <p class="user-city"> ${location.city} </p5> 
-	  </div>
+  <div class="user--img">
+  <img class="user--image" src="${picture.large}" alt="" >
+  </div>
+  <div class="user-info">
+  <h3 class="user-name">${name.first}</h3>
+  <h3 class="user-name">${name.last}</h3>
+  <p class="user-age">${dob.age} years old</p>
+  <p class="user-phone"> ${cell}"</p> 
+  <p class="user-country"> ${location.country} </p4> 
+  <p class="user-city"> ${location.city} </p5> 
+  </div>
   </div>
 	`;
 	return card;
@@ -110,8 +111,16 @@ function filterByGender(data, inputValue) {
   return data;
 };
 
+function resetUsers(data) {
+    fillCardContainer(data);
+    searchInput.value = '';
+    document.getElementById('sex--any').checked = true;
+    document.getElementById('empty').checked = true;
+};
+
 const searchInput = document.querySelector('#user--names');
-const searchByUserName = (data) => {
+
+function searchByUserName(data) {
   searchResult = [...data];
   searchInput.addEventListener('input', () => {
     searchResult = data.filter((user) => user.name.first.toLowerCase().includes(searchInput.value.toLowerCase()) || user.name.last.toLowerCase().includes(searchInput.value.toLowerCase()));
@@ -125,12 +134,3 @@ const searchByUserName = (data) => {
   });
 };
 
-const resetUsers = (data) => {
-  document.querySelector('.reset--button').addEventListener('click', (e) => {
-    e.preventDefault();
-    fillCardContainer(data);
-    searchInput.value = '';
-    document.getElementById('sex--any').checked = true;
-    document.getElementById('empty').checked = true;
-  });
-};
