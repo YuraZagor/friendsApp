@@ -44,15 +44,15 @@ async function friendsLoad(inputValue) {
       genderFilteredData = filterByGender([...loadedResults], inputValue);
       forPrintData = filterByGender(sortedData ? sortedData : loadedResults, inputValue);
       break;
+    case '':
+      break;
     default:
       forPrintData = loadedResults;
       break;
     }; 
-    fillCardContainer(forPrintData)
-    console.log(inputValue) 
-    console.log(forPrintData) 
+  fillCardContainer(forPrintData)
 };  
-friendsLoad()
+friendsLoad();
   
 inputsForm.onclick = function(event){
   let input = event.target.closest('input');
@@ -71,20 +71,20 @@ function fillCardContainer(data) {
 
 function createCard( {picture, name, dob, cell, location}) {
   const card = `
-		  <div class="user-card">
-			  <div class="user--img">
-			  	<img class="user--image" src="${picture.large}" alt="" >
-			  </div>
-			  <div class="user-info">
-				  <h3 class="user-name">${name.first}</h3>
-				  <h3 class="user-name">${name.last}</h3>
-				  <p class="user-age">${dob.age} years old</p>
-				  <p class="user-phone"> ${cell}"</p> 
-				  <p class="user-country"> ${location.country} </p4> 
-				  <p class="user-city"> ${location.city} </p5> 
-			  </div>
-		  </div>
-	`;
+		<div class="user-card">
+			<div class="user--img">
+				<img class="user--image" src="${picture.large}" alt="" >
+			</div>
+			<div class="user-info">
+				<h3 class="user-name">${name.first}</h3>
+				<h3 class="user-name">${name.last}</h3>
+				<p class="user-age">${dob.age} years old</p>
+				<p class="user-phone"> ${cell}"</p> 
+				<p class="user-country"> ${location.country} </p4> 
+				<p class="user-city"> ${location.city} </p5> 
+			</div>
+		</div>
+      `;
 	return card;
 };
 
