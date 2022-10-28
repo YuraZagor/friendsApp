@@ -69,7 +69,7 @@ function fillCardContainer(data) {
   });
 };
 
-function createCard( {picture, name, dob, cell, location}) {
+function createCard( {picture, name, dob, cell, location, email}) {
   const card = `
 	<article class="user-card">
 		<div class="user--img">
