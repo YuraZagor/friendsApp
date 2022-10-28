@@ -80,8 +80,8 @@ function createCard( {picture, name, dob, cell, location, email}) {
 			<h3 class="user-name">${name.last}</h3>
 			<p class="user-age">${dob.age} years old</p>
 			<a href='tel:${cell}'> ${cell} </a>
-			<p class="user-country"> ${location.country} </p4> 
-			<p class="user-city"> ${location.city} </p5> 
+			<p class="user-country"> ${location.country} </p> 
+			<p class="user-city"> ${location.city} </p> 
 			<a href='mailto:${email}'> e-mail </a>
 		</div>
 	</article>
@@ -98,7 +98,7 @@ function sortUsers(data, inputValue) {
     data.sort((a, b) => a.name.first.localeCompare(b.name.first));
     return inputValue === 'az' ? data : data.reverse();
   }
-  return data;
+  return data
 };
 
 function filterByGender(data, inputValue) {
@@ -108,7 +108,7 @@ function filterByGender(data, inputValue) {
   if (inputValue === 'male') {
     return data.filter((user) => user.gender === 'male');
   }
-  return data;
+  return data
 };
 
 function resetUsers(data) {
