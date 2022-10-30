@@ -16,7 +16,7 @@
 	background-color: rgb(199, 198, 198);
 }
 
-.forms--div{
+.form{
 	display: flex;
 	justify-content: center;
 	justify-content: space-around;
